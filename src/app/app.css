@@ -1,0 +1,127 @@
+:host {
+  display: block;
+  height: 100dvh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0ede8;
+  color: #0c0c0c;
+}
+
+@media (prefers-color-scheme: dark) {
+  main {
+    background: #0c0c0c;
+    color: #f0ede8;
+  }
+}
+
+.content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.label {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  opacity: 0.35;
+  letter-spacing: 0.05em;
+  margin: 0 0 1.5rem;
+  animation: fadeIn 0.6s ease both;
+}
+
+/* Name — huge editorial display */
+h1 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(3.5rem, 11vw, 9.5rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  margin: 0 0 2rem;
+  white-space: pre;
+  animation: fadeIn 0.4s ease both 0.1s;
+}
+
+/* Glitch: fires once, triggered by [class.glitch] */
+@keyframes glitch {
+  0%   { transform: translate(0); }
+  15%  { transform: translate(-5px, 2px); }
+  30%  { transform: translate(5px, -2px); }
+  45%  { transform: translate(-4px, 1px); }
+  60%  { transform: translate(4px, -1px); }
+  75%  { transform: translate(-2px, 3px); }
+  90%  { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+
+.glitch {
+  animation: glitch 0.32s steps(2, end) 1 !important;
+}
+
+/* Typewriter tagline */
+.tagline {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
+  opacity: 0.55;
+  margin: 0 0 3rem;
+  min-height: 1.6em;
+  letter-spacing: 0.02em;
+  animation: fadeIn 0.6s ease both 0.2s;
+}
+
+/* Blinking cursor */
+.cursor {
+  opacity: 1;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* LinkedIn pill button */
+.linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 9999px;
+  border: 1.5px solid currentColor;
+  color: inherit;
+  background: transparent;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: background 0.2s ease, color 0.2s ease;
+  animation: fadeIn 0.8s ease both 0.4s;
+}
+
+.linkedin-link:hover {
+  background: #0c0c0c;
+  color: #f0ede8;
+  border-color: #0c0c0c;
+}
+
+@media (prefers-color-scheme: dark) {
+  .linkedin-link:hover {
+    background: #f0ede8;
+    color: #0c0c0c;
+    border-color: #f0ede8;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (max-width: 480px) {
+  h1 { white-space: normal; }
+}
